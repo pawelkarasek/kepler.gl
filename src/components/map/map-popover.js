@@ -26,7 +26,7 @@ import {CenterFlexbox} from 'components/common/styled-components';
 import {Pin, Layers} from 'components/common/icons';
 import {FIELD_DISPLAY_FORMAT} from 'constants/default-settings';
 
-const MAX_WIDTH = 400;
+const MAX_WIDTH = 800;
 const MAX_HEIGHT = 600;
 
 const StyledMapPopover = styled.div`
@@ -227,6 +227,7 @@ const Row = ({name, value, url}) => {
   }
 
   const asImg = /<img>/.test(name);
+  const isRestaurants =name === 'restaurants';
   return (
     <tr className="row" key={name}>
       <td className="row__name">{name}</td>
@@ -237,8 +238,10 @@ const Row = ({name, value, url}) => {
           <a target="_blank" rel="noopener noreferrer" href={url}>
             {value}
           </a>
-        ) : (
-          value
+        ) :isRestaurants ?(
+          <pre>value</pre>
+        ) :(
+        value
         )}
       </td>
     </tr>
