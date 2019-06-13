@@ -1,0 +1,63 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.onWebGLInitialized = onWebGLInitialized;
+exports.setLayerBlending = setLayerBlending;
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _objectSpread3 = _interopRequireDefault(require("@babel/runtime/helpers/objectSpread"));
+
+var _luma = require("luma.gl");
+
+var _brushingModule = _interopRequireDefault(require("../shaderlib/brushing-module"));
+
+var _defaultSettings = require("../constants/default-settings");
+
+var _constants = _interopRequireDefault(require("luma.gl/constants"));
+
+// Copyright (c) 2019 Uber Technologies, Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+var getGlConst = function getGlConst(d) {
+  return _constants["default"][d];
+};
+
+function onWebGLInitialized(gl) {
+  (0, _luma.registerShaderModules)([_brushingModule["default"]], {
+    ignoreMultipleRegistrations: true
+  });
+}
+
+function setLayerBlending(gl, layerBlending) {
+  var blending = _defaultSettings.LAYER_BLENDINGS[layerBlending];
+  var blendFunc = blending.blendFunc,
+      blendEquation = blending.blendEquation;
+  (0, _luma.setParameters)(gl, (0, _objectSpread3["default"])((0, _defineProperty2["default"])({}, _constants["default"].BLEND, true), blendFunc ? {
+    blendFunc: blendFunc.map(getGlConst),
+    blendEquation: Array.isArray(blendEquation) ? blendEquation.map(getGlConst) : getGlConst(blendEquation)
+  } : {}));
+}
+
+;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy91dGlscy9nbC11dGlscy5qcyJdLCJuYW1lcyI6WyJnZXRHbENvbnN0IiwiZCIsIkdMIiwib25XZWJHTEluaXRpYWxpemVkIiwiZ2wiLCJicnVzaGluZ01vZHVsZSIsImlnbm9yZU11bHRpcGxlUmVnaXN0cmF0aW9ucyIsInNldExheWVyQmxlbmRpbmciLCJsYXllckJsZW5kaW5nIiwiYmxlbmRpbmciLCJMQVlFUl9CTEVORElOR1MiLCJibGVuZEZ1bmMiLCJibGVuZEVxdWF0aW9uIiwiQkxFTkQiLCJtYXAiLCJBcnJheSIsImlzQXJyYXkiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7O0FBb0JBOztBQUNBOztBQUNBOztBQUNBOztBQXZCQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQU9BLElBQU1BLFVBQVUsR0FBRyxTQUFiQSxVQUFhLENBQUFDLENBQUM7QUFBQSxTQUFJQyxzQkFBR0QsQ0FBSCxDQUFKO0FBQUEsQ0FBcEI7O0FBRU8sU0FBU0Usa0JBQVQsQ0FBNEJDLEVBQTVCLEVBQWdDO0FBQ3JDLG1DQUFzQixDQUFDQywwQkFBRCxDQUF0QixFQUF3QztBQUFDQyxJQUFBQSwyQkFBMkIsRUFBRTtBQUE5QixHQUF4QztBQUNEOztBQUVNLFNBQVNDLGdCQUFULENBQTBCSCxFQUExQixFQUE4QkksYUFBOUIsRUFBNkM7QUFDbEQsTUFBTUMsUUFBUSxHQUFHQyxpQ0FBZ0JGLGFBQWhCLENBQWpCO0FBRGtELE1BRTNDRyxTQUYyQyxHQUVmRixRQUZlLENBRTNDRSxTQUYyQztBQUFBLE1BRWhDQyxhQUZnQyxHQUVmSCxRQUZlLENBRWhDRyxhQUZnQztBQUlsRCwyQkFBY1IsRUFBZCxzRUFDR0Ysc0JBQUdXLEtBRE4sRUFDYyxJQURkLEdBRU1GLFNBQVMsR0FBRztBQUNkQSxJQUFBQSxTQUFTLEVBQUVBLFNBQVMsQ0FBQ0csR0FBVixDQUFjZCxVQUFkLENBREc7QUFFZFksSUFBQUEsYUFBYSxFQUFFRyxLQUFLLENBQUNDLE9BQU4sQ0FBY0osYUFBZCxJQUErQkEsYUFBYSxDQUFDRSxHQUFkLENBQWtCZCxVQUFsQixDQUEvQixHQUErREEsVUFBVSxDQUFDWSxhQUFEO0FBRjFFLEdBQUgsR0FHVCxFQUxOO0FBT0Q7O0FBQUEiLCJzb3VyY2VzQ29udGVudCI6WyIvLyBDb3B5cmlnaHQgKGMpIDIwMTkgVWJlciBUZWNobm9sb2dpZXMsIEluYy5cbi8vXG4vLyBQZXJtaXNzaW9uIGlzIGhlcmVieSBncmFudGVkLCBmcmVlIG9mIGNoYXJnZSwgdG8gYW55IHBlcnNvbiBvYnRhaW5pbmcgYSBjb3B5XG4vLyBvZiB0aGlzIHNvZnR3YXJlIGFuZCBhc3NvY2lhdGVkIGRvY3VtZW50YXRpb24gZmlsZXMgKHRoZSBcIlNvZnR3YXJlXCIpLCB0byBkZWFsXG4vLyBpbiB0aGUgU29mdHdhcmUgd2l0aG91dCByZXN0cmljdGlvbiwgaW5jbHVkaW5nIHdpdGhvdXQgbGltaXRhdGlvbiB0aGUgcmlnaHRzXG4vLyB0byB1c2UsIGNvcHksIG1vZGlmeSwgbWVyZ2UsIHB1Ymxpc2gsIGRpc3RyaWJ1dGUsIHN1YmxpY2Vuc2UsIGFuZC9vciBzZWxsXG4vLyBjb3BpZXMgb2YgdGhlIFNvZnR3YXJlLCBhbmQgdG8gcGVybWl0IHBlcnNvbnMgdG8gd2hvbSB0aGUgU29mdHdhcmUgaXNcbi8vIGZ1cm5pc2hlZCB0byBkbyBzbywgc3ViamVjdCB0byB0aGUgZm9sbG93aW5nIGNvbmRpdGlvbnM6XG4vL1xuLy8gVGhlIGFib3ZlIGNvcHlyaWdodCBub3RpY2UgYW5kIHRoaXMgcGVybWlzc2lvbiBub3RpY2Ugc2hhbGwgYmUgaW5jbHVkZWQgaW5cbi8vIGFsbCBjb3BpZXMgb3Igc3Vic3RhbnRpYWwgcG9ydGlvbnMgb2YgdGhlIFNvZnR3YXJlLlxuLy9cbi8vIFRIRSBTT0ZUV0FSRSBJUyBQUk9WSURFRCBcIkFTIElTXCIsIFdJVEhPVVQgV0FSUkFOVFkgT0YgQU5ZIEtJTkQsIEVYUFJFU1MgT1Jcbi8vIElNUExJRUQsIElOQ0xVRElORyBCVVQgTk9UIExJTUlURUQgVE8gVEhFIFdBUlJBTlRJRVMgT0YgTUVSQ0hBTlRBQklMSVRZLFxuLy8gRklUTkVTUyBGT1IgQSBQQVJUSUNVTEFSIFBVUlBPU0UgQU5EIE5PTklORlJJTkdFTUVOVC4gSU4gTk8gRVZFTlQgU0hBTEwgVEhFXG4vLyBBVVRIT1JTIE9SIENPUFlSSUdIVCBIT0xERVJTIEJFIExJQUJMRSBGT1IgQU5ZIENMQUlNLCBEQU1BR0VTIE9SIE9USEVSXG4vLyBMSUFCSUxJVFksIFdIRVRIRVIgSU4gQU4gQUNUSU9OIE9GIENPTlRSQUNULCBUT1JUIE9SIE9USEVSV0lTRSwgQVJJU0lORyBGUk9NLFxuLy8gT1VUIE9GIE9SIElOIENPTk5FQ1RJT04gV0lUSCBUSEUgU09GVFdBUkUgT1IgVEhFIFVTRSBPUiBPVEhFUiBERUFMSU5HUyBJTlxuLy8gVEhFIFNPRlRXQVJFLlxuXG5pbXBvcnQge3JlZ2lzdGVyU2hhZGVyTW9kdWxlcywgc2V0UGFyYW1ldGVyc30gZnJvbSAnbHVtYS5nbCc7XG5pbXBvcnQgYnJ1c2hpbmdNb2R1bGUgZnJvbSAnc2hhZGVybGliL2JydXNoaW5nLW1vZHVsZSc7XG5pbXBvcnQge0xBWUVSX0JMRU5ESU5HU30gZnJvbSAnY29uc3RhbnRzL2RlZmF1bHQtc2V0dGluZ3MnO1xuaW1wb3J0IEdMIGZyb20gJ2x1bWEuZ2wvY29uc3RhbnRzJztcblxuY29uc3QgZ2V0R2xDb25zdCA9IGQgPT4gR0xbZF07XG5cbmV4cG9ydCBmdW5jdGlvbiBvbldlYkdMSW5pdGlhbGl6ZWQoZ2wpIHtcbiAgcmVnaXN0ZXJTaGFkZXJNb2R1bGVzKFticnVzaGluZ01vZHVsZV0sIHtpZ25vcmVNdWx0aXBsZVJlZ2lzdHJhdGlvbnM6IHRydWV9KTtcbn1cblxuZXhwb3J0IGZ1bmN0aW9uIHNldExheWVyQmxlbmRpbmcoZ2wsIGxheWVyQmxlbmRpbmcpIHtcbiAgY29uc3QgYmxlbmRpbmcgPSBMQVlFUl9CTEVORElOR1NbbGF5ZXJCbGVuZGluZ107XG4gIGNvbnN0IHtibGVuZEZ1bmMsIGJsZW5kRXF1YXRpb259ID0gYmxlbmRpbmc7XG5cbiAgc2V0UGFyYW1ldGVycyhnbCwge1xuICAgIFtHTC5CTEVORF06IHRydWUsXG4gICAgLi4uKGJsZW5kRnVuYyA/IHtcbiAgICAgIGJsZW5kRnVuYzogYmxlbmRGdW5jLm1hcChnZXRHbENvbnN0KSxcbiAgICAgIGJsZW5kRXF1YXRpb246IEFycmF5LmlzQXJyYXkoYmxlbmRFcXVhdGlvbikgPyBibGVuZEVxdWF0aW9uLm1hcChnZXRHbENvbnN0KSA6IGdldEdsQ29uc3QoYmxlbmRFcXVhdGlvbilcbiAgICB9IDoge30pXG4gIH0pO1xufTtcbiJdfQ==

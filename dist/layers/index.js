@@ -1,0 +1,85 @@
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "Layer", {
+  enumerable: true,
+  get: function get() {
+    return _baseLayer["default"];
+  }
+});
+exports.LayerClasses = exports.KeplerGlLayers = void 0;
+
+var _pointLayer = _interopRequireDefault(require("./point-layer/point-layer"));
+
+var _arcLayer = _interopRequireDefault(require("./arc-layer/arc-layer"));
+
+var _lineLayer = _interopRequireDefault(require("./line-layer/line-layer"));
+
+var _gridLayer = _interopRequireDefault(require("./grid-layer/grid-layer"));
+
+var _hexagonLayer = _interopRequireDefault(require("./hexagon-layer/hexagon-layer"));
+
+var _geojsonLayer = _interopRequireDefault(require("./geojson-layer/geojson-layer"));
+
+var _clusterLayer = _interopRequireDefault(require("./cluster-layer/cluster-layer"));
+
+var _iconLayer = _interopRequireDefault(require("./icon-layer/icon-layer"));
+
+var _heatmapLayer = _interopRequireDefault(require("./heatmap-layer/heatmap-layer"));
+
+var _h3HexagonLayer = _interopRequireDefault(require("./h3-hexagon-layer/h3-hexagon-layer"));
+
+var _baseLayer = _interopRequireDefault(require("./base-layer"));
+
+// Copyright (c) 2019 Uber Technologies, Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+// base layer
+// individual layers
+var KeplerGlLayers = {
+  PointLayer: _pointLayer["default"],
+  ArcLayer: _arcLayer["default"],
+  LineLayer: _lineLayer["default"],
+  GridLayer: _gridLayer["default"],
+  HexagonLayer: _hexagonLayer["default"],
+  GeojsonLayer: _geojsonLayer["default"],
+  ClusterLayer: _clusterLayer["default"],
+  IconLayer: _iconLayer["default"],
+  HeatmapLayer: _heatmapLayer["default"],
+  H3Layer: _h3HexagonLayer["default"]
+};
+exports.KeplerGlLayers = KeplerGlLayers;
+var LayerClasses = {
+  point: _pointLayer["default"],
+  arc: _arcLayer["default"],
+  line: _lineLayer["default"],
+  grid: _gridLayer["default"],
+  hexagon: _hexagonLayer["default"],
+  geojson: _geojsonLayer["default"],
+  cluster: _clusterLayer["default"],
+  icon: _iconLayer["default"],
+  heatmap: _heatmapLayer["default"],
+  hexagonId: _h3HexagonLayer["default"]
+};
+exports.LayerClasses = LayerClasses;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9sYXllcnMvaW5kZXguanMiXSwibmFtZXMiOlsiS2VwbGVyR2xMYXllcnMiLCJQb2ludExheWVyIiwiQXJjTGF5ZXIiLCJMaW5lTGF5ZXIiLCJHcmlkTGF5ZXIiLCJIZXhhZ29uTGF5ZXIiLCJHZW9qc29uTGF5ZXIiLCJDbHVzdGVyTGF5ZXIiLCJJY29uTGF5ZXIiLCJIZWF0bWFwTGF5ZXIiLCJIM0xheWVyIiwiTGF5ZXJDbGFzc2VzIiwicG9pbnQiLCJhcmMiLCJsaW5lIiwiZ3JpZCIsImhleGFnb24iLCJnZW9qc29uIiwiY2x1c3RlciIsImljb24iLCJoZWF0bWFwIiwiaGV4YWdvbklkIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7QUFvQkE7O0FBQ0E7O0FBQ0E7O0FBQ0E7O0FBQ0E7O0FBQ0E7O0FBQ0E7O0FBQ0E7O0FBQ0E7O0FBQ0E7O0FBR0E7O0FBaENBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBYUE7QUFHQTtBQUNPLElBQU1BLGNBQWMsR0FBRztBQUM1QkMsRUFBQUEsVUFBVSxFQUFWQSxzQkFENEI7QUFFNUJDLEVBQUFBLFFBQVEsRUFBUkEsb0JBRjRCO0FBRzVCQyxFQUFBQSxTQUFTLEVBQVRBLHFCQUg0QjtBQUk1QkMsRUFBQUEsU0FBUyxFQUFUQSxxQkFKNEI7QUFLNUJDLEVBQUFBLFlBQVksRUFBWkEsd0JBTDRCO0FBTTVCQyxFQUFBQSxZQUFZLEVBQVpBLHdCQU40QjtBQU81QkMsRUFBQUEsWUFBWSxFQUFaQSx3QkFQNEI7QUFRNUJDLEVBQUFBLFNBQVMsRUFBVEEscUJBUjRCO0FBUzVCQyxFQUFBQSxZQUFZLEVBQVpBLHdCQVQ0QjtBQVU1QkMsRUFBQUEsT0FBTyxFQUFQQTtBQVY0QixDQUF2Qjs7QUFhQSxJQUFNQyxZQUFZLEdBQUc7QUFDMUJDLEVBQUFBLEtBQUssRUFBRVgsc0JBRG1CO0FBRTFCWSxFQUFBQSxHQUFHLEVBQUVYLG9CQUZxQjtBQUcxQlksRUFBQUEsSUFBSSxFQUFFWCxxQkFIb0I7QUFJMUJZLEVBQUFBLElBQUksRUFBRVgscUJBSm9CO0FBSzFCWSxFQUFBQSxPQUFPLEVBQUVYLHdCQUxpQjtBQU0xQlksRUFBQUEsT0FBTyxFQUFFWCx3QkFOaUI7QUFPMUJZLEVBQUFBLE9BQU8sRUFBRVgsd0JBUGlCO0FBUTFCWSxFQUFBQSxJQUFJLEVBQUVYLHFCQVJvQjtBQVMxQlksRUFBQUEsT0FBTyxFQUFFWCx3QkFUaUI7QUFVMUJZLEVBQUFBLFNBQVMsRUFBRVg7QUFWZSxDQUFyQiIsInNvdXJjZXNDb250ZW50IjpbIi8vIENvcHlyaWdodCAoYykgMjAxOSBVYmVyIFRlY2hub2xvZ2llcywgSW5jLlxuLy9cbi8vIFBlcm1pc3Npb24gaXMgaGVyZWJ5IGdyYW50ZWQsIGZyZWUgb2YgY2hhcmdlLCB0byBhbnkgcGVyc29uIG9idGFpbmluZyBhIGNvcHlcbi8vIG9mIHRoaXMgc29mdHdhcmUgYW5kIGFzc29jaWF0ZWQgZG9jdW1lbnRhdGlvbiBmaWxlcyAodGhlIFwiU29mdHdhcmVcIiksIHRvIGRlYWxcbi8vIGluIHRoZSBTb2Z0d2FyZSB3aXRob3V0IHJlc3RyaWN0aW9uLCBpbmNsdWRpbmcgd2l0aG91dCBsaW1pdGF0aW9uIHRoZSByaWdodHNcbi8vIHRvIHVzZSwgY29weSwgbW9kaWZ5LCBtZXJnZSwgcHVibGlzaCwgZGlzdHJpYnV0ZSwgc3VibGljZW5zZSwgYW5kL29yIHNlbGxcbi8vIGNvcGllcyBvZiB0aGUgU29mdHdhcmUsIGFuZCB0byBwZXJtaXQgcGVyc29ucyB0byB3aG9tIHRoZSBTb2Z0d2FyZSBpc1xuLy8gZnVybmlzaGVkIHRvIGRvIHNvLCBzdWJqZWN0IHRvIHRoZSBmb2xsb3dpbmcgY29uZGl0aW9uczpcbi8vXG4vLyBUaGUgYWJvdmUgY29weXJpZ2h0IG5vdGljZSBhbmQgdGhpcyBwZXJtaXNzaW9uIG5vdGljZSBzaGFsbCBiZSBpbmNsdWRlZCBpblxuLy8gYWxsIGNvcGllcyBvciBzdWJzdGFudGlhbCBwb3J0aW9ucyBvZiB0aGUgU29mdHdhcmUuXG4vL1xuLy8gVEhFIFNPRlRXQVJFIElTIFBST1ZJREVEIFwiQVMgSVNcIiwgV0lUSE9VVCBXQVJSQU5UWSBPRiBBTlkgS0lORCwgRVhQUkVTUyBPUlxuLy8gSU1QTElFRCwgSU5DTFVESU5HIEJVVCBOT1QgTElNSVRFRCBUTyBUSEUgV0FSUkFOVElFUyBPRiBNRVJDSEFOVEFCSUxJVFksXG4vLyBGSVRORVNTIEZPUiBBIFBBUlRJQ1VMQVIgUFVSUE9TRSBBTkQgTk9OSU5GUklOR0VNRU5ULiBJTiBOTyBFVkVOVCBTSEFMTCBUSEVcbi8vIEFVVEhPUlMgT1IgQ09QWVJJR0hUIEhPTERFUlMgQkUgTElBQkxFIEZPUiBBTlkgQ0xBSU0sIERBTUFHRVMgT1IgT1RIRVJcbi8vIExJQUJJTElUWSwgV0hFVEhFUiBJTiBBTiBBQ1RJT04gT0YgQ09OVFJBQ1QsIFRPUlQgT1IgT1RIRVJXSVNFLCBBUklTSU5HIEZST00sXG4vLyBPVVQgT0YgT1IgSU4gQ09OTkVDVElPTiBXSVRIIFRIRSBTT0ZUV0FSRSBPUiBUSEUgVVNFIE9SIE9USEVSIERFQUxJTkdTIElOXG4vLyBUSEUgU09GVFdBUkUuXG5cbmltcG9ydCB7ZGVmYXVsdCBhcyBQb2ludExheWVyfSBmcm9tICcuL3BvaW50LWxheWVyL3BvaW50LWxheWVyJztcbmltcG9ydCB7ZGVmYXVsdCBhcyBBcmNMYXllcn0gZnJvbSAnLi9hcmMtbGF5ZXIvYXJjLWxheWVyJztcbmltcG9ydCB7ZGVmYXVsdCBhcyBMaW5lTGF5ZXJ9IGZyb20gJy4vbGluZS1sYXllci9saW5lLWxheWVyJztcbmltcG9ydCB7ZGVmYXVsdCBhcyBHcmlkTGF5ZXJ9IGZyb20gJy4vZ3JpZC1sYXllci9ncmlkLWxheWVyJztcbmltcG9ydCB7ZGVmYXVsdCBhcyBIZXhhZ29uTGF5ZXJ9IGZyb20gJy4vaGV4YWdvbi1sYXllci9oZXhhZ29uLWxheWVyJztcbmltcG9ydCB7ZGVmYXVsdCBhcyBHZW9qc29uTGF5ZXJ9IGZyb20gJy4vZ2VvanNvbi1sYXllci9nZW9qc29uLWxheWVyJztcbmltcG9ydCB7ZGVmYXVsdCBhcyBDbHVzdGVyTGF5ZXJ9IGZyb20gJy4vY2x1c3Rlci1sYXllci9jbHVzdGVyLWxheWVyJztcbmltcG9ydCB7ZGVmYXVsdCBhcyBJY29uTGF5ZXJ9IGZyb20gJy4vaWNvbi1sYXllci9pY29uLWxheWVyJztcbmltcG9ydCB7ZGVmYXVsdCBhcyBIZWF0bWFwTGF5ZXJ9IGZyb20gJy4vaGVhdG1hcC1sYXllci9oZWF0bWFwLWxheWVyJztcbmltcG9ydCB7ZGVmYXVsdCBhcyBIM0xheWVyfSBmcm9tICcuL2gzLWhleGFnb24tbGF5ZXIvaDMtaGV4YWdvbi1sYXllcic7XG5cbi8vIGJhc2UgbGF5ZXJcbmV4cG9ydCB7ZGVmYXVsdCBhcyBMYXllcn0gZnJvbSAnLi9iYXNlLWxheWVyJztcblxuLy8gaW5kaXZpZHVhbCBsYXllcnNcbmV4cG9ydCBjb25zdCBLZXBsZXJHbExheWVycyA9IHtcbiAgUG9pbnRMYXllcixcbiAgQXJjTGF5ZXIsXG4gIExpbmVMYXllcixcbiAgR3JpZExheWVyLFxuICBIZXhhZ29uTGF5ZXIsXG4gIEdlb2pzb25MYXllcixcbiAgQ2x1c3RlckxheWVyLFxuICBJY29uTGF5ZXIsXG4gIEhlYXRtYXBMYXllcixcbiAgSDNMYXllclxufTtcblxuZXhwb3J0IGNvbnN0IExheWVyQ2xhc3NlcyA9IHtcbiAgcG9pbnQ6IFBvaW50TGF5ZXIsXG4gIGFyYzogQXJjTGF5ZXIsXG4gIGxpbmU6IExpbmVMYXllcixcbiAgZ3JpZDogR3JpZExheWVyLFxuICBoZXhhZ29uOiBIZXhhZ29uTGF5ZXIsXG4gIGdlb2pzb246IEdlb2pzb25MYXllcixcbiAgY2x1c3RlcjogQ2x1c3RlckxheWVyLFxuICBpY29uOiBJY29uTGF5ZXIsXG4gIGhlYXRtYXA6IEhlYXRtYXBMYXllcixcbiAgaGV4YWdvbklkOiBIM0xheWVyXG59O1xuIl19
